@@ -6,14 +6,14 @@ Nộp link repo trên LMS bằng tài khoản cá nhân. Tên repo/file và chec
 
 ## 0. Phân bổ thời gian (4 giờ)
 
-| Thời lượng | Hoạt động | Kết quả phải có |
-| ---: | --- | --- |
-| 0:00-0:25 | Đọc schema, xem ảnh, thống nhất quy tắc | ghi ba ca mơ hồ vào `GUIDELINE_MINI.md` |
-| 0:25-2:15 | Gán nhãn 50 ảnh train | 50 file YOLO trong `dataset/labels/train/` |
-| 2:15-2:40 | Self-QC và kiểm tra cấu trúc | `check_yolo_labels.py` chạy đạt |
-| 2:40-3:00 | Nộp/khóa nhãn, nhận gold labels từ giảng viên | không sửa nhãn trước khi chạy đánh giá |
-| 3:00-3:20 | Chấm nhãn với gold set, rework nếu cần | F1 >= 0.80 và mean IoU >= 0.70 |
-| 3:20-4:00 | Mở notebook Colab (tự clone repo của bạn), train và evaluate YOLO | link Colab, ảnh/chỉ số eval |
+| Thời lượng | Hoạt động                                                         | Kết quả phải có                            |
+| ---------: | ----------------------------------------------------------------- | ------------------------------------------ |
+|  0:00-0:25 | Đọc schema, xem ảnh, thống nhất quy tắc                           | ghi ba ca mơ hồ vào `GUIDELINE_MINI.md`    |
+|  0:25-2:15 | Gán nhãn 50 ảnh train                                             | 50 file YOLO trong `dataset/labels/train/` |
+|  2:15-2:40 | Self-QC và kiểm tra cấu trúc                                      | `check_yolo_labels.py` chạy đạt            |
+|  2:40-3:00 | Nộp/khóa nhãn, nhận gold labels từ giảng viên                     | không sửa nhãn trước khi chạy đánh giá     |
+|  3:00-3:20 | Chấm nhãn với gold set, rework nếu cần                            | F1 >= 0.80 và mean IoU >= 0.70             |
+|  3:20-4:00 | Mở notebook Colab (tự clone repo của bạn), train và evaluate YOLO | link Colab, ảnh/chỉ số eval                |
 
 ## 1. Quy tắc gán nhãn
 
@@ -28,14 +28,14 @@ Nộp link repo trên LMS bằng tài khoản cá nhân. Tên repo/file và chec
 
 ### Các quyết định cần nhất quán
 
-| Tình huống | Quyết định |
-| --- | --- |
-| Xe đang đỗ | vẫn gán lớp theo loại xe |
-| Hai xe chồng lên nhau | vẽ hai box riêng trên phần nhìn thấy của từng xe |
-| Mô tô/xe máy trong cảnh | không gán; không thuộc bốn lớp của schema |
-| Van/minivan mơ hồ với `bus` hoặc `car` | không tự chọn; ghi case ID và hỏi |
-| Phản chiếu trong kính/gương | không gán nếu không phải xe thật trong cảnh |
-| Bảng quảng cáo có hình xe | không gán |
+| Tình huống                             | Quyết định                                       |
+| -------------------------------------- | ------------------------------------------------ |
+| Xe đang đỗ                             | vẫn gán lớp theo loại xe                         |
+| Hai xe chồng lên nhau                  | vẽ hai box riêng trên phần nhìn thấy của từng xe |
+| Mô tô/xe máy trong cảnh                | không gán; không thuộc bốn lớp của schema        |
+| Van/minivan mơ hồ với `bus` hoặc `car` | không tự chọn; ghi case ID và hỏi                |
+| Phản chiếu trong kính/gương            | không gán nếu không phải xe thật trong cảnh      |
+| Bảng quảng cáo có hình xe              | không gán                                        |
 
 ## 2. Tạo nhãn YOLO
 
@@ -78,11 +78,11 @@ Lệnh này kiểm tra đủ 50 file, đúng basename, năm cột, ID lớp và 
 
 Checklist trước khi khóa nhãn:
 
-- [ ] Có đúng 50 file `.txt` trong `dataset/labels/train/`.
-- [ ] Mỗi xe thuộc schema đã có một box; không bỏ sót xe bị che/cắt khung có thể nhận diện.
-- [ ] Không có box lỏng hoặc gộp hai xe thành một box.
-- [ ] Không nhầm `truck`, `bus`, `car`, `van`.
-- [ ] `GUIDELINE_MINI.md` nêu định nghĩa lớp và ít nhất ba quyết định mơ hồ.
+- [x] Có đúng 50 file `.txt` trong `dataset/labels/train/`.
+- [x] Mỗi xe thuộc schema đã có một box; không bỏ sót xe bị che/cắt khung có thể nhận diện.
+- [x] Không có box lỏng hoặc gộp hai xe thành một box.
+- [x] Không nhầm `truck`, `bus`, `car`, `van`.
+- [x] `GUIDELINE_MINI.md` nêu định nghĩa lớp và ít nhất ba quyết định mơ hồ.
 
 ## 4. Chấm nhãn với ground truth
 
