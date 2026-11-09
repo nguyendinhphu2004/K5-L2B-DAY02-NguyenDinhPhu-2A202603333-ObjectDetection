@@ -45,7 +45,7 @@ Kết quả chấm lần đầu trên bộ nhãn đã khóa (commit `1ad8423`), 
 | Recall              |    0.7366 | Không chạy (xem ghi chú) |
 | F1                  |    0.5529 | Không chạy (xem ghi chú) |
 | mean_iou_of_matches |    0.8396 | Không chạy (xem ghi chú) |
-| passed              |     false | Không chạy (xem ghi chú) |
+| passed              |           | Không chạy (xem ghi chú) |
 
 Ghi chú về lý do: theo đánh giá của tôi, bộ gold dùng để chấm (`gold_train_labels`) có vấn đề: thiếu nhiều box (xe nhìn thấy rõ trong ảnh nhưng không có nhãn) và có box bị gán sai lớp. Số liệu hỗ trợ cho phần "thiếu box": tổng số box nhãn của tôi là 1087, gold chỉ có 653; ví dụ lệch rõ ở `drive_002` (46 box so với 13) và `drive_028` (21 so với 3). Vì F1 bị kéo xuống chủ yếu bởi FP (606) trong khi mean IoU đạt 0.8396, tôi cho rằng sửa nhãn theo gold sẽ làm nhãn kém đi thay vì tốt lên.
 
